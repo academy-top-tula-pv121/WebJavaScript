@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Body begin</h3>
+
+    <script>
+      /*
+      let num = 2n**54n;
+      console.log(num);
+
+      let s = `Hello
+          world`;
+      console.log(s);
+
+      let name = "Bob";
+      let age = 32;
+      let hello = `Hello ${name} (${age})`;
+      console.log(hello);
+      */
+      /*
+      let obj = {
+        "name": "Bob",
+        "age": 34,
+        "address": "Moscow",
+        "married": true,
+        "phone mob": "564564564"
+      };
+
+      for(let key in obj)
+        console.log(key + " -> " + obj[key]);
+
+      let array = [23, 56, 98];
+      let arrayWow = [23, true, "Hello", 87.098];
+
+      for(let item of arrayWow)
+        console.log(item);
+
+      for(let i = 0; i < arrayWow.length; i++)
+        console.log(arrayWow[i]);
+
+      let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+      for(let i = 0; i < 3; i++)
+      {
+        let s = "";
+        for(let j = 0; j < 3; j++)
+          s += matrix[i][j] + " ";
+        console.log(s);
+      }
+*/
+      /*
+      function SayHi(name){
+        console.log("Hello " + name);
+      }
+
+      let a = 100;
+      console.log(Func());
+      function Func(){
+        return a;
+      }
+      console.log(typeof(Func));
+
+      let Func2 = function(){
+        return 100;
+      }
+      Func2 = Func;
+      console.log(typeof(Func2));
+      */
+      //SayHi("Bob");
+      //console.log(Power(3, 5));
+      /*
+      function Power(x, n) {
+        let p = 1;
+        for(let i = 0; i < n; i++)
+          p *= x;
+        return p;
+      }
+
+      function FuncRet(){
+        return function(n){
+          return 2 * n;
+        }
+      }
+
+      let funcSqr = FuncRet();
+      console.log(funcSqr);
+      */
+      /*
+      function CounterRet(){
+        let count = 0;
+        return function(){
+          return ++count;
+        }
+      }
+
+      let Counter = CounterRet();
+
+      for(let i = 0; i < 5; i++)
+        console.log(Counter());
+
+      let Counter2 = CounterRet();
+      for(let i = 0; i < 5; i++)
+        console.log(Counter2());
+
+      function calc(x, y, f){
+        return f(x, y);
+      }
+
+      console.log(calc(10, 20, function(a, b){ return a + b; }));
+      */
+
+      SayHi();
+      function SayHi(){
+        console.log("Hello");
+      }
+      let SayHiExpr = function(){
+        console.log("Hello from expression!");
+      }
+      SayHiExpr();
+
+      let SayHiArr = () => console.log("Hello from arrows function!");
+      SayHiArr();
+
+      let SumNum = (a, b) => a + b;
+
+      console.log(SumNum(10, 20));
+
+      let Power = (x, n) => {
+        let p = 1;
+        for(let i = 0; i < n; i++) p *= x;
+        return p;
+      }
+
+      let gender = "male";
+
+      let HiGenderRet = () => (gender == "male") ?
+        (name) => console.log("Mr. " + name) :
+        (name) => console.log("Ms. " + name);
+
+
+
+      let HiGender = HiGenderRet();
+      HiGender("Bob");
+      gender = "female";
+      HiGender = HiGenderRet();
+      HiGender("Ann");
+
+      console.log(HiGender);
+
+    </script>
+  </body>
+</html>
