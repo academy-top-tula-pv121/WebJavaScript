@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>javascript operations with types</title>
+  </head>
+  <body>
+
+    <script>
+      /*
+      let nx = 0xf5;
+      let nb = 0b01001000101;
+      let no = 0o3761;
+      let x = 2307.5835;
+      let n = 76523;
+      console.log(n.toString());
+      console.log(n.toString(2));
+      console.log(Math.floor(x)); // округление в меньшую
+      console.log(Math.ceil(x)); // в большую
+      console.log(Math.round(x)); // до ближайшего целого
+      console.log(Math.trunc(x)); // отбрасывашние дробной части
+      console.log(x.toFixed(2)); // округление с точностью
+
+      let res = x / 2;
+      if(Number.isFinite(res))
+        console.log("Inf");
+      else
+        console.log("not inf");
+
+      res = x / "a";
+      if(Number.isNaN(res))
+        console.log("NaN");
+      else
+        console.log("not NaN");
+
+      let str = "fa";
+      let w = parseInt(str, 16);
+      console.log(w);
+
+      console.log(Math.random());
+      console.log(Math.max(56, 234, 09, 231, 53));
+      console.log(Math.min(56, 234, 09, 231, 53, 23));
+      console.log(Math.pow(5, 3));
+      console.log(5**3);
+      */
+      /*
+      let str = "Hello World, Hello People";
+      console.log(str.length);
+
+
+      for(let ch of str)
+        console.log(ch);
+
+      for(let i = 0; i < str.length; i++)
+        console.log(str[i]);
+
+
+      console.log(str.toLowerCase());
+      console.log(str.toUpperCase());
+      console.log(str.indexOf("lo", 5));
+      console.log(str.lastIndexOf("lo"));
+
+      // str.includes(substr)
+      // str.startsWith(substr)
+      // str.endsWith(substr)
+
+      console.log(str.slice(3, -5)); // [3,8)
+
+      console.log(str.slice(8, 3));
+      console.log(str.substring(8, 3));
+
+      console.log(str.substr(3, 8));
+
+      console.log(str.codePointAt(3));
+      console.log(String.fromCodePoint(1000));
+      */
+      /*
+      let array1 = [];
+      let array2 = new Array();
+
+      let arrNames = ["Bob", "Joe", "Tim"];
+      arrNames[3] = "Sam";
+
+      //for(let item of arrNames)
+      //  console.log(item);
+
+      for(let i = 0; i < arrNames.length; i++)
+        console.log(arrNames[i]);
+
+      for(let i = -1; Math.abs(i) <= arrNames.length; i--)
+        console.log(arrNames.at(i));
+
+      // push / pop - конец массива
+      // unshift / shift - начало массива
+
+      arrNames.push("Kim");
+      arrNames.unshift("Leo");
+
+      console.log(arrNames);
+
+      let users = arrNames;
+      users[2] = "Max";
+
+      console.log(arrNames);
+
+      console.log(arrNames.toString());
+
+      let matrix = [[1, 2, 3], [4, 5, 6]];
+      console.log(matrix.toString());
+      */
+
+      /*
+      let array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log(array);
+
+      //delete array[4];
+      //console.log(array);
+
+      console.log(array.splice(4, 1));
+      console.log(array);
+
+      console.log(array.splice(2, 2, 100, 200, 300));
+      console.log(array);
+
+      console.log(array.splice(3, 0, 1000, 2000, 3000));
+      console.log(array);
+
+      let arrCopy = array.slice(3, 8);
+      console.log(arrCopy);
+
+      let arr1 = [1, 2, 3, 4];
+      let arr2 = [5, 6, 7, 8];
+      let arr3 = [];
+      arr3 = arr3.concat(arr1, arr2, [10, 20], 100, 200);
+      console.log(arr3);
+
+      arr3.sort((a, b) => b - a);
+      console.log(arr3);
+
+      console.log(arr3.join(";"));
+
+      // indexOf(value [, position])
+      // lastIndexOf(value [, position])
+
+      // includes(value [, position]) -> bool
+
+      let arr4 = [1, 2, 3, 5, 7, 9];
+      console.log(arr4.every( item => item % 2 == 1));
+      console.log(arr4.some( item => item % 2 == 0));
+
+      arr4.forEach(item => {
+        if(item % 2 == 1)
+          document.write(item, "^2 = ", item * item,"<br>")
+        });
+
+      arr4 = arr4.map(item => item * item);
+      console.log(arr4);
+
+      console.log(arr4.find(item => item % 2 == 0));
+      console.log(arr4.findIndex(item => item % 2 == 0));
+      */
+      /*
+      let arr1 = [1, 2, 3, 4];
+      let arr2 = [5, 6, 7, 8];
+
+      arr1.splice(arr1.length, 0, arr2);
+      console.log(arr1);
+
+      let arr3 = [1, 2, 3, 4, [6, 7, 8, [9, 10, 11]]];
+
+      arr3 = arr3.flat(Infinity);
+      console.log(arr3);
+
+      let arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log(arr4.find(item => item % 2 == 0));
+
+      console.log(arr4.filter(item => item % 2 == 0));
+      */
+
+      /*
+      let str = "Tom;Bob;Tim;Joe";
+
+      let names = str.split(";");
+      console.log(names);
+      let str2 = names.join(";");
+      console.log(str2);
+      */
+
+      let arr1 = ["Bob", "Tim", "Joe"];
+      let arr2 = [...arr1];
+      arr2[0] = "Leo";
+      console.log(arr1);
+      console.log(arr2);
+
+      let arr3 = [{"name":"Bob"}, {"name":"Tim"}, {"name":"Joe"}];
+      let arr4 = [...arr3];
+
+      //arr4[0].name = "Leo";
+      arr4[0] = {"name":"Leo"};
+
+      console.log(arr3);
+      console.log(arr4);
+
+    </script>
+  </body>
+</html>
