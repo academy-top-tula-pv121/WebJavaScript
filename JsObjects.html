@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      let obj1 = new Object();
+      let obj2 = {};
+      let obj3 = {
+        name: "Joe",
+        age: 27,
+        print: function() {
+          console.log("name: " + this.name + ", age:", this.age);
+        },
+        "phone work": "+7(999) 123-45-67",
+      }
+
+      obj1.name = "Bob";
+      obj1.age = 31;
+      obj1.print = function(){
+        console.log("name: " + this.name + ", age:", this.age);
+      }
+      let key = "phone work";
+      console.log(obj3[key]);
+      obj3.print();
+
+      let name = "Leo";
+      let age = 41;
+      let obj4 = {name, age};
+
+      let obj5 = {
+        ["name"]: "Tim",
+        ["age"]: 29,
+      };
+      console.log(obj5.name);
+
+      let prop1 = "name";
+      let prop2 = "age";
+      let obj6 = {
+        [prop1]: "Tim",
+        [prop2]: 29,
+      };
+      console.log(obj6);
+
+      function ObjCreate(propertyName, propertyValue)
+      {
+        return {
+          [propertyName]: propertyValue,
+        };
+      }
+
+      function ObjPropertAdd(obj, propertyName, propertyValue)
+      {
+        obj[propertyName] = propertyValue;
+      }
+
+      let obj7 = ObjCreate("title", "Yandex");
+      console.log(obj7);
+      ObjPropertAdd(obj7, "city", "Moscow");
+      console.log(obj7);
+
+      delete obj7.city;
+      console.log(obj7);
+
+      const cobj = {
+        name: "Bob",
+        age: 33,
+      }
+
+      cobj.name = "Sam";
+      console.log(cobj);
+
+      let propArr = [["name", "Joe"], ["age", 42], ["city", "Moscow"]];
+      let obj8 = Object.fromEntries(propArr);
+      console.log(obj8);
+
+      let props = ["name", "age", "phone"];
+
+      for(let prop of props)
+      {
+        console.log(prop, "in object is ", prop in obj8);
+      }
+
+      obj8.print = function(){
+        console.log("name:", this.name, "age:", this.age);
+      }
+
+      for(let propName in obj8)
+      {
+        console.log(propName, " -> ", obj8[propName]);
+      }
+
+      let user = {
+        name: "Bob",
+        address: {
+          city: "Moscow",
+          region: "Central Region",
+        }
+      }
+
+      console.log(user);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      /*
+      let user = {
+        "name": "Bob",
+        "age": 41,
+        "address": {
+          "country": "Russia",
+          "city": "Moscow",
+        },
+      };
+
+      user.address.city = "Tula";
+      console.log(user.address.city);
+      user.address["country"] = "China";
+
+      let company = {
+        "title": "Yandex",
+        "office main": "Moscow",
+        "filials": [
+          {"city": "Tula",
+          "post": "300000",
+          "reg code": 71 },
+          {"city": "St. Peterburg",
+          "post": "777000"},
+        ],
+      }
+
+      console.log(company);
+      for(let filial of company.filials)
+        console.log(filial);
+
+      let otherCompany = company;
+      otherCompany.title = "Mail Group";
+      console.log(company);
+
+      let oldObj = { ...company };
+      console.log(oldObj);
+      oldObj.title = "Ozon";
+      console.log(company);
+      */
+
+      /*
+      let copyCompany = Object.assign(oldObj, company);
+      copyCompany.title = "Ozon";
+      copyCompany.filials[0].city = "Kaluga";
+      console.log(copyCompany);
+      console.log(company);
+      */
+      /*
+      let obj1 = new Object();
+      console.log(obj1);
+
+      function Address(country, city, street)
+      {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+      }
+
+      let addrTop = new Address("Russia", "Tula", "Central per.");
+      let addrOzon = new Address("Russia", "Ozon", "Leninsky");
+
+      Address.prototype.print = function(){
+        console.log("country:", this.country, "city:", this.city, "street:", this.street);
+      }
+
+
+      addrOzon.print = function()
+      {
+        console.log("other print");
+      }
+      addrOzon.print();
+      addrTop.print();
+
+      function Company(title, address)
+      {
+        this.title = title;
+        this.address = address;
+        this.print = function(){
+          console.log("title:", this.title, "address:", this.address);
+        }
+      }
+
+      let addr = new Address("Russia", "Moscow", "Tverskaya");
+      let yandex = new Company("Yandex", addr);
+      yandex.print();
+
+      console.log(addr instanceof Address);
+      console.log(addr instanceof Company);
+
+      console.log(yandex instanceof Address);
+      console.log(yandex instanceof Company);
+
+      console.log(obj1 instanceof Address);
+      console.log(obj1 instanceof Company);
+
+      addr.country = "China";
+      console.log(addr);
+
+      function User(name, age)
+      {
+        let _name = name;
+        let _age;
+        if(typeof age === "number" && age > 0 && age < 101)
+          _age = age;
+
+        this.getName = function(){
+          return _name;
+        }
+        this.setName = function(name){
+          _name = name;
+        }
+
+        this.getAge = function(){
+          return _age;
+        }
+        this.setAge = function(age){
+          if(typeof age === "number" && age > 0 && age < 101)
+            _name = name;
+        }
+        this.print = function(){
+          console.log("name:", _name, "age:", _age);
+        }
+      }
+
+      let user1 = new User("Tim", 47);
+      console.log(user1.getAge());
+      user1.print();
+      */
+      function f1(){
+        console.log("func 1");
+        console.log(f1.prototype);
+      };
+      let f2 = function(){
+        f1();
+        console.log("func 2");
+        console.log(f2.caller);
+      };
+
+      let f3 = function(){
+        f1();
+        console.log("func 3");
+        console.log(f3.prototype);
+      };
+
+      f3();
+
+      //let f3 = () => {};
+      /*
+      let f4 = new Function("...args", `let sum = 0;
+                                       for (let arg of args)
+                                            sum += arg;
+                                       return sum;`);
+
+      let num;
+      let arrNums = [];
+      do {
+        num = prompt("input number");
+        arrNums.push(+num);
+      } while (num != 0);
+
+      console.log(f4.call(this, 10, 20));
+      console.log(f4.apply(this, arrNums));
+      */
+
+      function Book(title, author)
+      {
+        this.title = title;
+        this.author = author;
+      }
+
+      function Company(title, city)
+      {
+        this.title = title;
+        this.city = city;
+        this.print = function(){
+          console.log("title:", title, "city:", city);
+        }
+      }
+
+      Company.prototype.MaxCount = 100;
+
+      function ItCompany(title, city, type){
+        Company.call(this, title, city);
+        this.type = type;
+        this.print = function(){
+          console.log("title:", title, "city:", city, "type:", type);
+        }
+      }
+
+      ItCompany.prototype = Object.create(Company.prototype);
+
+      function printTitle(){
+        console.log("title:", this.title);
+      }
+
+      console.log(Company.prototype);
+      console.log(ItCompany.prototype);
+
+      let myBook = new Book("War and Piece", "Tolstoy");
+      let myCompany = new Company("Top", "Tula");
+      console.log("for my company max count = ", myCompany.MaxCount);
+
+      //printTitle.call(myBook);
+      //printTitle.call(myCompany);
+
+      let ozon = new ItCompany("Ozon", "Moscow", "Shop");
+      ozon.print();
+
+    </script>
+  </body>
+</html>
