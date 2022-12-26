@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      class Transport{
+        title = "";
+        speed = 0;
+        constructor(title){
+          this.title = title;
+        }
+        move(speed){
+          this.speed = speed;
+          console.log(this.title, "move with speed", this.speed);
+        }
+
+        stop(){
+          this.speed = 0;
+          console.log(this.title, "stoping");
+        }
+      }
+
+      let transport = new Transport("car");
+      transport.move(200);
+      transport.stop();
+
+      class Car extends Transport{
+        constructor(title, count){
+          super(title);
+          this.count = count;
+        }
+        move(speed){
+          console.log("car");
+          super.move(speed);
+        }
+      }
+
+      let car = new Car("Volga");
+      car.move(250);
+
+
+      function func(){
+        this.hello = function(){
+          console.log("Hello");
+        }
+      }
+      class ClassHello extends func {}
+      new ClassHello().hello();
+
+      function classCreate(){
+        return class {
+          goodBy(){
+            console.log("Good By");
+          }
+        }
+      }
+      class ClassBy extends classCreate(){}
+      new ClassBy().goodBy();
+
+      class Parent
+      {
+        name = "parent";
+        constructor(){
+          this.getName();
+        }
+        getName(){
+          console.log(this.name);
+        }
+        static Method(){
+          console.log("Static method");
+        }
+      }
+
+      class Child extends Parent
+      {
+        name = "child";
+          getName(){
+            console.log(this.name);
+          }
+      }
+
+      let p = new Parent();
+      let c = new Child();
+      p.getName();
+      Parent.Method();
+      c.getName();
+      Child.Method();
+
+
+      class PrivateProp{
+        #prop = 0;
+        get Prop(){ return this.#prop; }
+        set Prop(value) { this.#prop = value; }
+        toString(){
+          return "prop: " + this.#prop;
+        }
+      }
+
+      let obj = new PrivateProp();
+      obj.Prop = 100;
+      console.log(obj.Prop);
+
+      console.log(obj.toString());
+
+      let Funcs = {
+        getTitle(){
+          return this.title;
+        },
+        setTitle(value){
+          this.title = value;
+        }
+      }
+
+      class Book{
+        constructor(title){
+          this.title = title;
+        }
+      }
+
+      class Category{
+        constructor(title){
+          this.title = title;
+        }
+      }
+
+      Object.assign(Book.prototype, Funcs);
+      let book = new Book("Buratino");
+      console.log(book.getTitle());
+
+      class MyError extends Error
+      {
+        constructor(message){
+          super(message);
+          this.name = "My error";
+        }
+      }
+
+      try{
+          throw new MyError("ah ah");
+      }
+      catch(err) {
+        console.log("error!", err.name, err.message);
+      }
+
+    </script>
+  </body>
+</html>

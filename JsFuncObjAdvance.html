@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function sumAll(...args)
+      {
+        let sum = 0;
+        for(let item of args)
+          sum += item;
+        return sum;
+      }
+
+      function minAll()
+      {
+        let min = arguments[0];
+        for(let i = 1; i < arguments.length; i++)
+          if(min > arguments[i])
+            min = arguments[i];
+        return min;
+      }
+
+      let arr = [5, 8, 1, 2, 9, 3];
+
+      console.log(sumAll(5, 8, 1, 2, 9, 3));
+      console.log(minAll(5, 8, 1, 2, 9, 3));
+
+      console.log(sumAll(...arr));
+
+    </script>
+  </body>
+</html>
