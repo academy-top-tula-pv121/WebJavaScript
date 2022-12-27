@@ -6,19 +6,78 @@
   </head>
   <body>
     <div class="">
-      <p class="c1">Hello</p></div>
+      prev
+    </div>
+    <div class="div1">
+      <p class="">first</p>
+      <p class=""></p>
+      <p class="">last</p>
+    </div>
+    <div id="div_id1" class="div2">
+      next
+      <p class=""></p>
+    </div>
+
+    <table>
+      <tr>
+        <td id="myid-td">1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+    </table>
     <script>
+    /*
       document.write("<h1>Hello</h1>")
       console.log(document.nodeName);
       console.log(document.doctype.nodeName);
       console.log(document.body.nodeName);
-
+    */
       //console.log(document.querySelector('div').nodeName);
-      let div = document.querySelector('div');
+      //let div = document.querySelector('.div1');
+      //div.innerText = "This Div";
+      //document.body.style.color = "#f00";
+      //setTimeout(() => document.body.style.color = "#000", 2000);
+/*
+      let div = document.querySelector('.div1');
+      console.log(div.parentElement);
+      console.log(div.previousElementSibling);
+      console.log(div.nextElementSibling);
+      console.log(div.firstElementChild);
+      console.log(div.lastElementChild);
+      for(let child of div.children)
+        console.log(child);
 
-      div.innerText = "This Div";
-      
+      let table = document.querySelector('table');
+      console.log(table);
+      console.log(table.caption);
+      console.log(table.thead);
+      console.log(table.tBodies);
+      console.log(table.tfoot);
 
+      for(let row of table.rows)
+        console.log(row);
+*/
+
+      let item = document.getElementsByTagName("p")[0];
+      //div_id1.style.color = "red";
+      //window["myid-td"].style.color = "red";
+
+      let divs = document.getElementsByTagName("div");
+      for(let item of divs)
+        console.log(item);
+      let div1 = divs[1];
+      // document.getElementsByClassName("");
+      // document.getElementsByName("");
+
+      // document.querySelector("");
+      // document.querySelectorAll("");
+
+      console.log(item.matches("p")); // Проврека на css селектор
+      console.log(item.closest("div")); // Поиск ближайшего по иерархии на css селектор
+      console.log(div1.contains(item)); //
 
     </script>
   </body>

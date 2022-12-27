@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Hello
+    <div class="div1" product_id="12">
+
+    </div>
+    <script>
+      let div = document.getElementsByTagName("div")[0];
+      div.myProp = {
+        "name": "Max",
+        "age": 49
+      }
+      div.printHello = function(){
+        this.innerHTML = "Hello";
+      };
+
+      let myItem = document.createElement("myitem");
+      myItem.innerHTML = "Hello";
+      myItem.style.color = "red";
+      document.body.appendChild(myItem);
+
+      console.log(div);
+      div.printHello();
+    </script>
+  </body>
+</html>

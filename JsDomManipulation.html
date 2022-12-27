@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+
+    <script>
+      let body = document.body;
+      let divNew = document.createElement("div");
+      divNew.innerText = "Append new div!";
+      body.appendChild(divNew);
+
+      let div = document.getElementsByTagName("div")[0];
+      div.style.color = "red";
+
+      let divClone = divNew.cloneNode(true);
+      divClone.innerText += " Clone div";
+      body.insertBefore(divClone, divNew);
+
+      let header = document.createElement("header");
+      header.innerText = "Header block";
+      header.style.color = "blue";
+      divClone.parentElement.replaceChild(header, divClone);
+
+      divNew.parentElement.removeChild(divNew);
+
+      console.log(header.innerText);
+      console.log(header.outerHTML);
+      console.log(header.textContent);
+
+      //header.innerHTML = "<b>innerHTML</b>";
+      header.textContent = "<b>innerHTML</b>";
+      header.hidden = true;
+
+      //let num = prompt("input count of items", 5);
+
+      let ul = document.createElement("ul");
+      let li = document.createElement("li");
+      for(let i = 1; i <= 5; i++)
+      {
+        let liApp = li.cloneNode();
+        liApp.textContent = `Item ${i}`;
+        ul.appendChild(liApp);
+      }
+      document.body.appendChild(ul);
+
+      //console.log(ul.hasChildNodes());
+      //console.log(ul.getRootNode());
+
+
+    </script>
+  </body>
+</html>
