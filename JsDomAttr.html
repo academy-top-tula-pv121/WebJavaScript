@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Element attributes</title>
+    <style>
+      .div-red{
+        width: 300px;
+        height: 300px;
+        background: red;
+      }
+      .div-green{
+        width: 300px;
+        height: 300px;
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div-red" my-attr="my-value" data-name="name1" data-my-city="tula">
+    </div>
+    <button id="btn">Click me</button>
+    <script>
+      // elem.hasAttribute("attr-name") - bool
+      // elem.getAttribute("attr-name") - value
+      // elem.setAttribute("attr-name", "value") - void
+      // elem.removeAttribute("attr-name") - void
+      // elem.Attributes - collection attributes
+      // elem.dataset - "data-"
+
+      console.log(document.querySelector(".div-red").hasAttribute("my-attr"));
+      console.log(document.querySelector(".div-red").getAttribute("my-attr"));
+
+      btn.addEventListener("click", (e) => {
+        document.querySelector(".div-red").setAttribute("class", "div-green");
+        console.log(document.querySelector(".div-green").removeAttribute("my-attr"));
+        console.log(document.querySelector(".div-green").hasAttribute("my-attr"));
+      });
+
+      console.log(document.querySelector(".div-red").dataset.name);
+      console.log(document.querySelector(".div-red").dataset.myCity);
+
+
+    </script>
+  </body>
+</html>

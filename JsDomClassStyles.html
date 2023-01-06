@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Classes and styles</title>
+    <style>
+      .text-bold{
+        font-weight: bold;
+      }
+      .text-green{
+        color: green;
+      }
+      .bg-aqua{
+        background: aqua;
+      }
+      .text-red{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="text-red text-bold">Hello world</p>
+    <p class="text-green">Hello people</p>
+    <button id="btn" name="button">Click me</button>
+
+    <script>
+      btn.addEventListener("click", (e) => {
+        let p = document.querySelector(".text-red");
+        //p.style.color = "green";
+        //p.style.fontSize = "30px";
+        //p.setAttribute("class", "text-green");
+        //console.log(p.className);
+        //let clist = p.classList;
+        //for(let item of clist)
+        //  console.log(item);
+        //let ps = document.querySelectorAll(".text-red");
+        //for(let item of ps)
+        //  item.style.color = "green";
+        //p.classList.contains("text-bold");
+
+        console.log(getComputedStyle(p).fontSize);
+      })
+    </script>
+  </body>
+</html>

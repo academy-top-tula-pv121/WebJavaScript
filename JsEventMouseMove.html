@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Mouse events</title>
+    <style>
+      .d-red{
+        width: 300px;
+        height: 300px;
+        background: red;
+      }
+      .mc-div{
+        position: absolute;
+        border: 1px black solid;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1">Click me</button>
+    <div class="mc-div"></div>
+
+    <div class="d-red">
+
+    </div>
+    <script>
+      // click, dblclick, mousemove, mousedown, mouseup, mouseover, mouseout, contextmenu
+      let btn1 = document.querySelector("#btn1");
+      let dred = document.querySelector(".d-red");
+      btn1.addEventListener("mousedown", (e) => {
+        dred.innerHTML += "mouse buttom: " + e.button + "<br>";
+        if(e.shiftKey)
+          dred.innerHTML += "+ shift<br>";
+        if(e.altKey)
+          dred.innerHTML += "+ alt<br>";
+        if(e.ctrlKey || e.metaKey)
+          dred.innerHTML += "+ ctrl<br>";
+      });
+
+
+      let mcdiv = document.querySelector(".mc-div");
+      let body = document.body;
+      document.addEventListener("mousemove", (e) => {
+        let x = e.pageX; // e.clientX;
+        let y = e.pageY; // e.clientY;
+        let text = "x:" + x + "," + "y:" + y;
+        mcdiv.innerHTML = text;
+        mcdiv.style.left = x + "px";
+        mcdiv.style.top = y + "px";
+
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Events 2</title>
+    <style>
+      .p1{
+        width: 100px;
+        height: 50px;
+        background: green;
+      }
+      .d2{
+        width: 120px;
+        height: 70px;
+        padding: 20px;
+        background: blue;
+      }
+      .d1{
+        width: 150px;
+        height: 100px;
+        padding: 20px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <!--header class="d1">
+      <div class="d2">
+        <p class="p1"></p>
+      </div>
+    </header-->
+
+    <!--a class="a1" href="https://yandex.ru">Yandex</a-->
+
+    <p>kjhkjhkjhkjhkj</p>
+
+    <table border="1">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </table>
+
+    <script>
+    /*
+      document.addEventListener("DOMContentLoaded", function ()){
+        let anch = document.querySelector(".a1");
+        anch.addEventListener("click", function(evt) {
+          evt.preventDefault();
+          alert("Go to Yandex!");
+        });
+      }
+      */
+      let div1 = document.querySelector(".d1");
+      let div2 = document.querySelector(".d2");
+      let par1 = document.querySelector(".p1");
+
+      div1.addEventListener("click",
+              (e) => alert(e.currentTarget.tagName + " " + e.target.tagName), true);
+      div2.addEventListener("click", (e) => {
+        //e.stopImmediatePropagation();
+        alert(e.currentTarget.tagName + " " + e.target.tagName);
+      }, true);
+      div2.addEventListener("click", (e) => alert("Div handler 2"), true);
+      par1.addEventListener("click",
+              (e) => alert(e.currentTarget.tagName + " " + e.target.tagName), true);
+
+
+
+      document.querySelector("p").addEventListener("click", function(e){
+        alert(e.target.tagName);
+      });
+
+      let tds = document.querySelectorAll("td");
+      for(let td of tds)
+        td.addEventListener("click", alertInnerHtml);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Events 3</title>
+  </head>
+  <body>
+    <p>Hello</p>
+    <table border="1">
+      <tr>
+        <td>1</td>
+        <td><b><i>2</i></b></td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><b>5</b></td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><i>8</i></td>
+        <td>9</td>
+      </tr>
+    </table>
+    <script>
+      let par = document.querySelector("p");
+      par.addEventListener("click", function(e){
+        alert(e.target.innerHTML);
+      });
+
+      /*
+      let tds = document.querySelectorAll("td");
+      for(let tdi of tds)
+        tdi.addEventListener("click", function(e){
+          alert(e.target.innerHTML);
+        });
+      */
+      let table = document.querySelector("table");
+      table.addEventListener("click", function(e){
+        let target = e.target;
+
+        if(!target.closest('td')) return;
+
+        //if(target.tagName != "TD") return;
+        alert(target.innerHTML);
+      });
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

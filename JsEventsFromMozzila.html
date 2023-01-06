@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Пример preventDefault</title>
+
+<script>
+
+function Init () {
+    var myTextbox = document.getElementById('my-textbox');
+    myTextbox.addEventListener( 'keypress', checkName, false );
+}
+
+function checkName(evt) {
+    var charCode = evt.charCode;
+    if (charCode != 0) {
+        if (charCode < 97 || charCode > 122) {
+            evt.preventDefault();
+            alert(
+                "Пожалуйста, используйте только буквы нижнего регистра на латинице"
+                + "\n" + "charCode: " + charCode + "\n"
+            );
+        }
+    }
+}
+
+</script>
+</head>
+<body onload="Init ()">
+    <p>Пожалуйста, введите своё имя, используя только буквы нижнего регистра на латинице.</p>
+    <form>
+        <input type="text" id="my-textbox" />
+    </form>
+</body>
+</html>

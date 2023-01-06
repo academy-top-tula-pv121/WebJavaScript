@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>List select</title>
+    <style>
+      .select{
+        background: black;
+        color: white;
+      }
+      li{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+      <li>item 5</li>
+      <li>item 6</li>
+    </ul>
+    <script>
+      let ul = document.querySelector("ul");
+      ul.addEventListener("click", (e) => {
+        if(!e.target.closest("li")) return;
+        if(e.ctrlKey || e.metaKey){
+          e.target.classList.toggle("select");
+        }
+        else {
+          let selects = ul.querySelectorAll(".select");
+          for(let s of selects)
+            s.classList.remove("select");
+          e.target.classList.add("select");
+        }
+      });
+    </script>
+  </body>
+</html>

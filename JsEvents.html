@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Events</title>
+    <style media="screen">
+    .c1{
+      width: 300px;
+      height: 300px;
+      background: #ccc;
+    }
+    </style>
+
+  </head>
+  <body>
+    <p class="p1"></p>
+    <div class="c1"></div> <!-- onclick="alert('Hello value attribute')" -->
+    <input type="button" name="button" value="Click me">
+
+
+
+    <script>
+      let div = document.querySelector(".c1");
+      let par = document.querySelector(".p1");
+      let btn = document.querySelector("input[type='button']");
+
+
+      function setBg(){
+        this.style.background = "blue";
+      }
+
+      function insertText(){
+        this.innerHTML = "Hello world";
+        this.style.color = "white";
+        this.style.fontSize = "30px";
+      }
+
+      function eventObject(e){
+        par.innerHTML = e.type + ", "
+                        + e.currentTarget
+                        + ", [" + e.clientX + ":" + e.clientY + "]";
+      }
+
+      btn.addEventListener("click", function(){
+        this.hidden = true;
+      });
+
+      // так не сработает
+      //document.onDOMContentLoaded = function(){
+      //    alert("DOM created!");
+      //};
+
+      // так сработает
+      //document.addEventListener("DOMContentLoaded", function(){
+      //    alert("DOM created!");
+      //});
+
+      div.addEventListener("click", setBg);
+      div.addEventListener("click", insertText);
+      div.addEventListener("click", eventObject);
+
+    </script>
+
+
+
+
+
+
+
+  </body>
+</html>
