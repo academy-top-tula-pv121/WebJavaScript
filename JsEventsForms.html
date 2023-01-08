@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Forms Events</title>
+    <style media="screen">
+      form{
+        background: #ccc;
+        margin: 20px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="form1" action="index.html" method="post">
+      <input type="text" name="in1" value="">
+      <div class="" style="width: 100px; height: 30px; border: 1px solid black;"></div>
+      <input type="text" name="" value="">
+    </form>
+    <form name="form2" action="index.html" method="post">
+      <fieldset name="set21">
+        <input type="text" name="" value="">
+        <input type="text" name="" value="">
+      </fieldset>
+    </form>
+    <script>
+      let forms = document.forms;
+      //document.forms.form1.style.background = "red";
+      //for(let f of forms)
+      //for(let i = 0; i < forms.length; i++)
+        //forms[i].style.background = "green";
+        //f.style.background = "yellow";
+
+      let f1 = document.forms.form1;
+      for(let elem of f1.elements)
+        elem.style.background = "red";
+
+      f1.in1.style.background = "magenta";
+
+      for(let elem of document.forms.form2.elements.set21.elements)
+        elem.style.background = "blue";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Keyboard events</title>
+  </head>
+  <body>
+    <textarea id="txt" rows="8" cols="80"></textarea>
+    <div id="div"></div>
+    <script>
+      txt.addEventListener("keydown", (e) => {
+        e.preventDefault();
+        let info = e.type + " " + e.key + " " + e.code + "<br>";
+        div.innerHTML += info;
+      });
+    </script>
+  </body>
+</html>

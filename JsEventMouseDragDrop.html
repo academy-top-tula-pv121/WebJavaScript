@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Mouse Drag and Drop</title>
+    <style>
+    #div{
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      padding: 20px;
+    }
+    .div-rel{
+      position: relative;
+    }
+    </style>
+
+  </head>
+  <body>
+    <div id="div">
+
+    </div>
+    <div class="div-rel">
+        <button id="btn" name="button">Drag and Drop</button>
+    </div>
+
+
+    <script>
+      btn.onmousedown = function(e){
+        btn.style.position = "absolute";
+        btn.style.zIntex = 1000;
+
+        document.body.append(btn);
+
+        MoveTo(e.clientX, e.clientY);
+
+        function MoveTo(x, y){
+          btn.style.left = x - btn.offsetWidth / 2 + "px";
+          btn.style.top = y - btn.offsetHeight / 2 + "px";
+        }
+
+        function BtnMouseMove(e){
+          MoveTo(e.clientX, e.clientY);
+        }
+
+        document.addEventListener('mousemove', BtnMouseMove);
+
+        btn.onmouseup = function(e){
+          document.removeEventListener('mousemove', BtnMouseMove);
+          btn.onmouseup = null;
+        };
+      };
+    </script>
+  </body>
+</html>

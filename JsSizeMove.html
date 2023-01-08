@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Size and move</title>
+    <style>
+      .div-main{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        padding: 20px;
+        overflow: auto;
+
+        position: absolute;
+        left: 150px;
+        top: 150px;
+        /*box-sizing: border-box;*/
+      }
+
+      main{
+        position: relative;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="">
+        <div class="div-main">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <br>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <br>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </article>
+    </main>
+    <button id="btn" name="button">Click me</button>
+    <button id="btnUp" name="button">Up</button>
+    <button id="btnDown" name="button">Down</button>
+    <script>
+      // elem.offsetParent
+      let div = document.querySelector(".div-main");
+      console.log(div.offsetParent.tagName);
+      console.log(div.offsetLeft);
+      console.log(div.offsetTop);
+      console.log(div.offsetWidth);
+      console.log(div.clientWidth);
+      console.log(div.offsetHeight);
+      console.log(div.clientHeight);
+
+      console.log(div.clientLeft);
+      console.log(div.clientTop);
+
+      console.log(div.scrollWidth);
+      console.log(div.scrollHeight);
+
+
+
+      btn.onclick = function(){
+        //console.log(div.scrollLeft);
+        //console.log(div.scrollTop);
+        console.log(document.documentElement.clientWidth);
+      };
+
+      btnUp.onclick = () =>{
+        //div.scrollTop -= 10;
+        window.scrollBy(-10, 0);
+      };
+
+      btnDown.onclick = () =>{
+        //div.scrollTop += 10;
+        //window.scrollBy(10, 0);
+        window.scrollTo(0, 0);
+      };
+    </script>
+  </body>
+</html>
