@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Document events</title>
+  </head>
+  <body>
+    <button type="button" name="button1" id="button1">Click me</button>
+
+    <script>
+      function sumN(n){
+          return new Promise(function(resolve, reject){
+            if(n < 0)
+              reject("negative number");
+            else {
+              let s = 0;
+              for(let i = 1; i <= n; i++)
+                s += i;
+              resolve(s);
+            }
+          }).then((value) => console.log("result:", value));
+      };
+
+      //sumN(2000);
+
+      function sumNM(n, m, handler){
+        if(handler == undefined){
+          handler = (value) => value;
+          //handler = function(value){ return value; };
+        }
+
+        return new Promise(function(resolve){
+          let s = 0;
+          for(let i = n; i < m; i++)
+            s += i;
+          resolve(s);
+        }).then(handler);
+      };
+
+      let summa = sumNM(100, 200);
+      console.log(summa);
+
+      //sumNM(100, 200, (value) => console.log("result:", value));
+
+      //sumN(1000).then((value) => console.log(value),
+      //                (value) => console.log("error:", value));
+      /*
+        let promise = new Promise(function(resolve, reject){
+          let s = 0;
+          for(let i = 1; i < 100; i++)
+            s += i;
+          resolve(s);
+        });
+        console.log(promise);
+      */
+
+
+
+        //let result = new Promise(function(resolve, reject){
+        //
+        //});
+
+    </script>
+  </body>
+</html>

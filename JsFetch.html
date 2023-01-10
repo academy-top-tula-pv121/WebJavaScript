@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      async function fetchGet(){
+        let response = await fetch("http://mysite.my/gallery/3:80",
+        {
+
+        });
+        if (response.ok) {
+          let txt = await response.text();
+          console.log(txt);
+        } else {
+          console.log("Ошибка HTTP: " + response.status);
+        }
+      };
+      fetchGet();
+
+    </script>
+  </body>
+</html>

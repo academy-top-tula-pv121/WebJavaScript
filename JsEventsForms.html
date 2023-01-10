@@ -16,6 +16,29 @@
       <input type="text" name="in1" value="">
       <div class="" style="width: 100px; height: 30px; border: 1px solid black;"></div>
       <input type="text" name="" value="">
+      <br>
+
+      <label for="check1">check 1</label>
+      <input type="checkbox" name="check1" value="">
+      <label for="check2">check 2</label>
+      <input type="checkbox" name="check2" value="">
+      <br>
+
+      <select class="" name="select1" multiple>
+        <option value="v1">value 1</option>
+        <option value="v2">value 2</option>
+        <option value="v3">value 3</option>
+        <option value="v4">value 4</option>
+        <option value="v5">value 5</option>
+      </select>
+      <br>
+
+      <input type="radio" name="radio1" value="radio 1">
+      <input type="radio" name="radio1" value="radio 2">
+      <input type="radio" name="radio1" value="radio 3">
+      <input type="radio" name="radio1" value="radio 4">
+
+      <button type="button" name="button1">Check 1</button>
     </form>
     <form name="form2" action="index.html" method="post">
       <fieldset name="set21">
@@ -33,12 +56,58 @@
 
       let f1 = document.forms.form1;
       for(let elem of f1.elements)
-        elem.style.background = "red";
+        elem.style.background = "aqua";
 
       f1.in1.style.background = "magenta";
 
       for(let elem of document.forms.form2.elements.set21.elements)
         elem.style.background = "blue";
+
+      let f11 = document.form1;
+      console.log(f11);
+
+      let select1 = document.form1.select1;
+
+      f11.button1.onclick = function(e){
+        //f11.check1.checked = !f11.check1.checked;
+        //f11.in1.value = "Hello world";
+
+        // select - option
+        /*
+        let index = 0;
+        let value = "";
+        let i = 0;
+        for(let opt of select1.options)
+        {
+          //console.log(opt);
+          if(opt.selected)
+          {
+            index = i;
+            value = opt.value;
+          }
+          i++;
+        }
+
+        let selectOpt = Array.from(select1.options)
+                             .filter(o => o.selected)
+                             .map(o => o.value);
+
+        console.log(index + " " + value);
+        console.log(select1.value);
+        console.log(select1.selectedIndex);
+
+        console.log(selectOpt);
+        */
+
+        // radio button
+        //let radio1 = f11.radio1;
+        //.log(radio1.value);
+
+        let checks = Array.from(f11.elements).filter(e => e.type == "checkbox" && e.checked).map(e => e);
+        console.log(checks);
+      };
+
+
     </script>
   </body>
 </html>
