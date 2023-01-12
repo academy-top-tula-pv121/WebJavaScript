@@ -6,7 +6,7 @@
   </head>
   <body>
     <p>
-      Посадил дед репку. Выросла репка большая-пребольшая.
+Посадил дед репку. Выросла репка большая-пребольшая.
       Пошел дед репку рвать: тянет-потянет, вытянуть не может!
       Позвал дед бабку:
       бабка за дедку,
@@ -50,15 +50,18 @@
       let reg2 = /pattern/flags/;
       let reg3 = new RegExp("pattern", "flags");
       */
+      /*
       let text = document.querySelector("p").innerHTML;
       //console.log(text);
       let expr1 = /РЕПК/gi;
+      let expr2 = new RegExp("/РЕПК/gi")
       let isResult = expr1.test(text);
       console.log(isResult);
       expr1.lastIndex = 0;
       let execResult = expr1.exec(text);
       console.log(execResult);
       console.log(expr1);
+      */
       //while(execResult = expr1.exec(text) !== null){
       //  let msg = execResult[0] + " : index " + expr1.lastIndex;
       //  console.log(msg);
@@ -71,6 +74,126 @@
       /u - поддержка unicode
       /y - поиск по позиции
       */
+
+      //let text = "hello\tworld";
+      //let expr3 = /hello.world/s;
+      //console.log(expr3.test(text));
+
+      //let text = "One two\tthree fore";
+      let text = document.querySelector("p").innerHTML;
+      let expr4 = /репк[а-я]/gi
+      //let expr44 = expr4.replase("а-я", "a-z");
+      //console.log(expr44);
+      let expr5 = /репк/gi
+      let pattern = "РЕПК";
+      let flags = "gi";
+      let expr55 = new RegExp(pattern, flags);
+      // разбиение строки на слова разделеные пробелом, табом, энтером
+      //let words = text.split(expr4);
+      //for(let word of words)
+      //  console.log(word);
+
+      // получим все соотвествия
+      let wordsFinds = text.match(expr4);
+      wordsFinds.forEach(item => console.log(item));
+      // все позиции совпадения
+      let positions = text.search(expr4);
+      console.log(positions);
+      // замена
+      let textNew = text.replace(expr5, "морковк");
+      console.log(textNew);
+
+      // Метасимволы
+      /*
+
+      \s - white space symbol
+      \S - все что не white space symbol
+
+      \d - цифры от 0 до 9
+      \D - все что не цифра
+
+      \w - любая буква латиницы, любая цифра, знак нижнее подчеркивание
+      [A-z,a-z,0-9,_]
+      \W - все противоположные
+
+      . - любой символ
+      */
+
+      let text6 = "abc123de56";
+      let expr6 = /\d\d/g;
+      let result6 = text6.replace(expr6, "*");
+      console.log(result6);
+      let result6a = text6.match(expr6);
+      result6a.forEach(item => console.log(item));
+
+      // Модфикаторы
+      /*
+      {n} количество повторений предыдущего Метасимволы
+      \d{5} - пять подрят цифр
+
+      {n,} - количество повторени >= n
+      \d{3,} - три и более подряд идущие цифры
+
+      {n, m} - количество повторений от n до m включительно
+      \d{2,5} - количество цифр подряд две, три, четыре или пять
+
+      ? - соответствует однократному вхождению символа или его отстуствию
+      /б?рак/ - будет соотвествовать и "брак" и "рак"
+
+      + - любое повторение символа от одного === {1,}
+      * - любое повторение вполь до отсутсвия === {0,}
+
+      ^ - соотвествие началу строку
+      ^\d - строка должна обязательно нгачаться с цифры
+      "1abc", "0 98" - true;
+      "a1b", " 1abc" - false;
+
+      $ - соотвествует концу строки
+      ;$ - строка дожна закончиться символом ";"
+
+      [1,a,$]
+      ^[0-9]
+
+
+      */
+      /*
+      let emailPattern = /^\w[\w,\.]*@\w[\w,\.]*\.[a-z,A-Z]$/
+      let graphFile = /^\w[\w,\.]*\.(png|jpg)$/;
+
+      let datePattern = /(?<day>\d{1,2})\.(?<month>\d{1,2})\.(?<year>\d{4}|\d{2})/u;
+
+      let resultDate = datePattern.exec("6.8.2019");
+      console.log(resultDate.groups);
+      for(let key in resultDate.groups)
+        console.log(key, resultDate.groups[key]);
+
+      console.log(resultDate.groups.year);
+
+      for(let item of resultDate)
+        console.log(item);
+      */
+
+      /*
+      Утверждения
+      Положительные (?<=.....)
+      Отрицательное (?<!.....)
+
+      */
+
+      let price1 = "computer: $10.50";
+      let price2 = "computer: €12.45";
+
+      let pricePattern = /\d+(\.\d*)?/;
+      let pricePatternEuro = /(?<=€)\d+(\.\d*)?/;
+
+
+      let result1 = pricePatternEuro.exec(price1);
+      console.log(result1);
+      let result2 = pricePatternEuro.exec(price2);
+      console.log(result2);
+
+
+
     </script>
   </body>
 </html>
