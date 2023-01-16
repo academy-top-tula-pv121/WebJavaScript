@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .redText .margin20{
+
+      }
+    </style>
+  </head>
+  <body>
+
+    <p class="redText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <input type="button" name="" value="Click me"><br>
+    <div>
+      <ul>
+        <li>Item 0</li>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+      </ul>
+      <button name="button">Click me</button><br>
+    </div>
+    <div class="wrap">
+      <div class="">div 0</div>
+      <div class="">div text 1</div>
+      <div class="">div 2</div>
+      <div class="">div text 3</div>
+      <div class="">div text 4</div>
+      <div class="">div 5</div>
+      <div class="">div 6</div>
+      <div class="">div 7</div>
+      <div class="">div text 8</div>
+      <div class="">div 9</div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      // standart without jQuery
+      /*
+      window.onload = function(){  code  };
+      */
+
+      // classic analog with jQuery
+      /*
+      jQuery(document).ready(function(){   });
+
+      $(document).ready(function(){  });
+
+      jQuery(function(){  });
+      */
+      $(function(){
+        //$("[attr|='value']").css("color", "red"); // atrr="value"
+        $("li:even").css("color", "red");
+        $("li:odd").css("color", "blue");
+        $("li:first").css("color", "yellow");
+        $("li:last").css("color", "aqua");
+        $("li:eq(5)").css("color", "magenta");
+        $("li:gt(7)").css("color", "green");
+        $("li:lt(3)").css("color", "brown");
+
+        $(".wrap div").css("color", "red");
+        $(".wrap div:contains('text')").css("color", "green");
+        $(".wrap:nth-child(odd)").css("background-color", "yellow");
+
+        $(":button:").css("color", "blue");
+        // :checkbox - чекбоксы
+        // :checked - выбранные чекбоксы и радиокнопки
+        // :disabled
+        // :enabled
+        // :file - <input type="file">
+        // :input
+        // :hidden
+        // :password
+        // :radio
+        // :reset
+        // :selected
+        // :submit
+        // :text
+        // :visible
+        // :has(selector) div:has("p")
+        // :empty без дочерних
+        // :first-child, :last-child
+        // :nth-child(n)
+        // :only-child
+        // :parent
+
+       });
+    </script>
+  </body>
+</html>
