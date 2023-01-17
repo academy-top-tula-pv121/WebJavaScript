@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <input type="button" name="" value="Click me"><br>
+    <div>
+      <ul>
+        <li>Item 0</li>
+        <li>Item 1
+          <ul>
+            <li>AAAA</li>
+            <li>BBBB</li>
+          </ul>
+        </li>
+        <li>Item 2
+          <h2>header 2</h2>
+        </li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+      </ul>
+      <button name="button">Click me</button><br>
+    </div>
+    <div class="wrap">
+      <div class="">div 0</div>
+      <div class="">div text 1</div>
+      <div class="">div 2</div>
+      <div class="">div text 3</div>
+      <div class="">div text 4</div>
+      <div class="">div 5</div>
+      <div class="">div 6</div>
+      <div class="">div 7</div>
+      <div class="">div text 8</div>
+      <div class="">div 9</div>
+    </div>
+
+    <nav>
+      <div class="numbers">
+        <p class="submenu">1</p>
+        <p>2</p>
+        <p>3</p>
+        <p class="stop">4</p>
+        <p>5</p>
+        <p>6</p>
+      </div>
+    </nav>
+
+
+    <div>
+      <ul class="menu">
+        <li>item 1</li>
+        <li>item 2
+          <ul class="submenu">
+            <li>item 2 1</li>
+            <li>item 2 2</li>
+            <li>item 2 3</li>
+          </ul>
+        </li>
+        <li>item 3</li>
+        <li>item 4
+          <ul class="submenu">
+            <li>item 4 1</li>
+            <li>item 4 2</li>
+            <li>item 4 3</li>
+          </ul>
+        </li>
+        <li>item 5</li>
+      </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      // find
+      // find(selector)
+      // find(element)
+      // find(jQuery)
+      /*
+      let elems = $("li");
+      let uls_sub = $("ul").find(".submenu").css("color", "red");
+      let element = $("ul.submenu")[0];
+      $("ul").find(element).css("color", "blue");
+      $("*").find(elems);
+      */
+
+      // children - полчение дочерних элементов
+      /*
+      let li_childs = $("li").children("");
+      li_childs.each((index, item) => console.log(item));
+      console.log("-----------");
+      let li_childs2 = $("li").children(".submenu");
+      li_childs2.each((index, item) => console.log(item));
+      */
+
+      // closest - поиск ближайшего родителя по условию
+      // closest(selector [, context])
+      // closet(element)
+      // closest(jQuery)
+      /*
+      let objs = $(".submenu").closest("li");
+      for(let item of objs)
+        console.log(item);
+      */
+
+      // next // nextAll // nextUntil
+      /*
+      let next_p = $("p.submenu").next();
+      next_p = $("p.submenu").nextAll();
+      next_p = $("p.submenu").nextUntil(".stop");
+      next_p.each((index, item) => console.log(item.innerHTML));
+      */
+
+      // prev // prevAll // prevUntil
+
+      // sibling
+      /*
+      let siblings = $("p.stop").siblings();
+      siblings.each((index, item) => console.log(item.innerHTML));
+      */
+
+      // parent // parents // parentsUntil
+      /*
+      let parents = $(".submenu").parent();
+      parents.each((index, item) => console.log(item));
+
+      let parentsOne = $("p.stop").parentsUntil("body");
+      parentsOne.each((index, item) => console.log(item));
+      */
+    </script>
+  </body>
+</html>

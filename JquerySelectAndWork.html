@@ -45,11 +45,11 @@
       <p>6</p>
     </div>
 
-    <div class="">
-      <ul>
+    <div>
+      <ul class="menu">
         <li>item 1</li>
         <li>item 2
-          <ul>
+          <ul class="submenu">
             <li>item 2 1</li>
             <li>item 2 2</li>
             <li>item 2 3</li>
@@ -112,13 +112,22 @@
       */
 
       // map
+      /*
       let lis2 = $("li");
       let list = lis2.map(function(index, item){
         return $(item).children()[0];
       });
       list.css("color", "aqua");
+      */
 
-
+      // is
+      // is(selector) - true если хоть один элемент соотвествует селектору
+      // is(element) - на соотвествие элемента innerHTML
+      // is(jQuery)
+      // is(function)
+      let uls = $("ul");
+      if(uls.is(".submenu"))
+        uls.filter(".submenu").css("color", "red");
     </script>
   </body>
 </html>
