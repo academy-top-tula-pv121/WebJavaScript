@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Html modify</title>
+  </head>
+  <body>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+
+    <ul>
+      <li>Item 111</li>
+      <li>Item 222</li>
+      <li>Item 333</li>
+      <li>Item 444</li>
+      <li>Item 555</li>
+    </ul>
+
+    <input type="text" name="" value=""><br>
+
+    <button type="button" name="button">Click me</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      // html
+      // html() - getter - для первого элемента коллекции
+      // html(html-marktext) - setter для всех элементов
+      // html(function) - setter для всех элементов
+
+      // text - текст без тегов
+      // text() - getter - для первого элемента коллекции
+      // text("valueNew") - setter для всех элементов
+      // text(function) - setter для всех элементов
+
+      // val для input элементов
+      // val() = getter для первого элемента
+      // val("valueNew") - setter для всех элементов
+      // val(function) - setter для всех элементов
+
+      let ulHtml = $("ul").html();
+      console.log(ulHtml);
+
+      let ulText = $("ul").text();
+      console.log(ulText);
+
+      let btn = $("button").first();
+      btn.click(() => {
+        /*
+        $("ul").html(`<li>Elem 11</li>
+                      <li>Elem 22</li>
+                      <li>Elem 33</li>
+                      <li>Elem 44</li>`);
+        */
+        /*
+        $("ul").html(function(index, value){
+          return value + `<li>Item 6</li>
+                          <li>Item 7</li>
+                          <li>Item 8</li>`;
+        });
+        */
+        //$("ul").html("<li>aaaaaa</li>");
+        $("input[type='text']").val("Hello world");
+      });
+    </script>
+  </body>
+</html>

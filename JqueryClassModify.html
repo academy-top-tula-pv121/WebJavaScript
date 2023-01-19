@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Class modify</title>
+    <style>
+      .redText{
+        color: red;
+      }
+      .greenText{
+        color: green;
+      }
+      .yellowBg{
+        background: yellow;
+      }
+      .aquaBg{
+        background: aqua;
+      }
+      div{
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        background: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aquaBg">
+      Hello world
+    </div>
+    <div class="yellowBg">
+      Hello people
+    </div>
+    <button type="button" name="button">Click me</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      let btn = $("button").first();
+      btn.click(function(){
+        //$("div").addClass("aquaBg redText");
+        //$("div").removeClass("yellowBg");
+        //console.log($("div").first().hasClass("aquaBg"));
+        $("div").first().toggleClass("aquaBg");
+      });
+
+
+    </script>
+  </body>
+</html>

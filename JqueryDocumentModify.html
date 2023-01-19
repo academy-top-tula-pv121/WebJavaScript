@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Document modify</title>
+    <style media="screen">
+      .div1{
+        background: aqua;
+      }
+      .yellowBg{
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <ul class="yellowBg">
+      <li>Item 111</li>
+      <li>Item 222</li>
+      <li>Item 333</li>
+      <li>Item 444</li>
+      <li>Item 555</li>
+    </ul>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <div class="">
+      <nav>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </nav>
+    </div>
+
+    <button type="button" name="button">Click me</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      // create new elements
+      let p1 = $("<p>Paragraph new</p>");
+      console.log(p1);
+
+      // clone elements
+      let li = $("ul").children().first();
+      let liClone = li.clone();
+      liClone.text("Item 777");
+
+      console.log(li);
+      console.log(liClone);
+
+      // append - добавляет в конец содержимого выбранных элементов
+      // append("html markup")
+      // append(element)
+      // append(jQuery)
+      // append(function)
+      // prepend - аналогично append только добавляет в начало содержимого
+
+      // appendTo -
+
+      // after - добавление на одном уровне после элемента
+      // after("html markup")
+      // after(element)
+      // after(jQuery)
+      // after(function)
+
+      // before - добавление на одном уровне до элемента
+      // before("html markup")
+      // before(element)
+      // before(jQuery)
+      // before(function)
+
+      // insertBefore(html markup)
+      // insertBefore(element)
+      // insertBefore(jQuery)
+      // insertBefore(selector)
+
+      // insertAfter
+      // insertAfter(html markup)
+      // insertAfter(element)
+      // insertAfter(jQuery)
+      // insertAfter(selector)
+
+      // wrap - создается "обертка" для выборки
+      // wrap(html markup)
+      // wrap(element)
+      // wrap(selector)
+      // wrap(jQuery)
+      // wrap(function)
+
+      // wrapAll - объединяет выборку внтури обертки
+
+      // wrapInner
+
+      // unwrap
+
+
+      let btn = $("button").first();
+      btn.click(() => {
+        //$("ul").first().append(liClone);
+        //$("ul").first().prepend(liClone);
+        //liClone.appendTo($("ul").first());
+        //liClone.prependTo($("ul"));
+        //$("p").after(p1);
+        //$("p").before(p1);
+        //p1.insertBefore($("p:first"));
+
+        //$("ul:first").wrap("<div class='div1'></div>");
+        let div = document.createElement("div");
+        div.className = "div1";
+        //$("ul").wrap(div);
+
+        //$("ul").wrapAll(div);
+        //$("ul").wrapInner(div);
+        $("ul").children().first().unwrap();
+      });
+
+
+    </script>
+  </body>
+</html>

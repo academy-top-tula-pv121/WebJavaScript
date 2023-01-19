@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS changes and modify</title>
+    <style>
+      div{
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="div1">
+      Hello world
+    </div>
+    <div class="div2">
+      Hello people
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      console.log($(".div1").first().css("width"));
+      $(".div1").first().css({
+                              "background-color": "magenta",
+                              "font-weight": "bold",
+                              "font-size": "30px"
+                            });
+      console.log($(".div2").first().css("background-color"));
+
+      $(".div2").css("background-color", function(index, value){
+        if(value == "rgba(0, 0, 0, 0)")
+          {return "yellow";}
+        else
+          {return "aqua";}
+      });
+
+      $(".div1").first().css("width", "+=2");
+
+      $(".div2").first().height(100);
+      let w = $(".div2").first().width();
+      $(".div2").first().width(w + 100);
+    </script>
+  </body>
+</html>

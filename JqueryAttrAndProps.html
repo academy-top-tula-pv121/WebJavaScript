@@ -5,11 +5,27 @@
     <title></title>
   </head>
   <body>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    
+
+    <p data-my-attr="value1" data-year="1993">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <a href="https://yandex.ru">Ссылка Yandex</a><br>
+    <a href="https://mail.ru">Ссылка Mail</a>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-      console.log($("p"));
+      // prop // removeProp
+      let hrefs = $("a").each((index, item) => console.log($(item).prop("href")));
+      //$("a").first().prop("href", "https://google.com");
+      $("a").first().removeProp("href");
+      // attr // removeAttr
+      console.log($("p").first().data("my-attr"));
+      console.log($("p").first().data().myAttr);
+      $("p").first().data("year", "2023");
+      console.log($("p").first().data("year"));
+      $("p").first().removeData("my-attr");
+      console.log($("p").first().data());
+
+
     </script>
   </body>
 </html>
