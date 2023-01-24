@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>JQuery Animation</title>
+  </head>
+  <body>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+
+    <button type="button" name="button">Select</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      let flag = true;
+
+      // hide() / show() / toggle()
+      // hide(duration)
+      // hide(duration, function)
+      // hide(duration, easing, function)
+      // const for duration: fast = 200, slow = 600
+
+
+      // slideUp(), slideDown(), slideToggle()
+      // duratin, easing, function
+
+      // fadeOut() / fadeUp() / fadeToggle() / fadeTo()
+      // duration, easing, function
+
+      $("button").last().click(function(e){
+        /*
+        if(flag)
+          $("ul").hide(2000);
+        else
+          $("ul").show(1000);
+        flag = !flag;
+        */
+        $("ul").fadeToggle(1000);
+      });
+    </script>
+  </body>
+</html>

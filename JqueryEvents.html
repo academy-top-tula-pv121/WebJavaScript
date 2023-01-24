@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery events</title>
+    <style media="screen">
+      .redText{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!--nav>
+      <div class="">
+        <ul>
+          <li>
+            <button type="button" name="btn1">Click me 1</button>
+          </li>
+          <li class="sec">
+
+          </li>
+        </ul>
+      </div>
+    </nav-->
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+
+
+    <button type="button" name="button">Select</button>
+    <button type="button" name="button">Unselect</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      // .bind("eventName", handler)
+      /*
+      let btn = $("button");
+      let array = { str: "Hello", num: 10 };
+      $("button").bind("keydown click", array, function(e) {
+        $(this).text("Нажми на меня");
+        console.log(e.currentTarget);
+        console.log(e.target);
+        console.log(e.data);
+        console.log(e.timeStamp);
+        console.log(e.pageX);
+        console.log(e.pageY);
+        console.log(e.which);
+        // e.preventDefault() - отменяет обработку по умолчанию
+        // e.isDefaoultPrevented() - true если для события уже вызывался preventDefault
+        // e.stopPropagation() - запрет всплытия
+        // e.isPropagationStopped() - true если для события был вызыван stopPropagation
+
+      });
+      function fhandler() {
+        $(this).toggleClass("redText");
+      };
+      */
+      //$("button").bind("click", fhandler);
+      //$("button").unbind("click", fhandler);
+      //$("button").one("click", fhandler);
+      /*
+      $("body *").bind("click", function(e){
+        console.log(e.currentTarget.tagName);
+        console.log(e.target.tagName);
+        console.log("\n");
+      });
+      */
+      /*
+      $(".b").bind("click", function(){
+        console.log("hello button class b");
+      });
+
+      $("body").delegate("button", "click", function(){
+        console.log("hello button");
+      });
+
+      let btn2 = $("<button type='button' name='btn1'>Click me 2</button>");
+      $(".sec").append(btn2);
+
+      $("body").off("click", "button");
+      */
+      // .on - аналог delegate
+      // .on("eventName", selector, [data], handler);
+      // .off("eventName", selector);
+
+
+      // trigger(eventName)
+      // trigger(Event object)
+
+      $("ul").on("mouseenter", "li", function(e){
+        $(this).css("background", "gray")
+      }).on("mouseout", "li", function(e){
+        $(this).css("background", "white")
+      });
+
+      $("button").first().bind("click", function(e){
+        $("li").trigger("mouseenter");
+      });
+
+      $("button").last().bind("click", function(e){
+        $("li").trigger("mouseout");
+      });
+
+    </script>
+  </body>
+</html>

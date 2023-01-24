@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Remove elements from document</title>
+    <style media="screen">
+      .div1{
+        background: aqua;
+      }
+      .yellowBg{
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hello</p>
+
+    <div class="div1">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+      <div>Item 4</div>
+    </div>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+
+    <ul class="yellowBg">
+      <li>Item 111</li>
+      <li>Item 222</li>
+      <li>Item 333</li>
+      <li>Item 444</li>
+      <li>Item 555</li>
+    </ul>
+
+    <button type="button" name="button">Click me</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      // Удаление элементов и содержимого эелементов
+
+      // replaceWith - замена элемента
+      // replaceWith(html markup)
+      // replaceWith(element)
+      // replaceWith(jQuery)
+      // replaceWith(function)
+      // эелементы меняем на новый элемент
+
+      // replaceAll - меняется порядок.
+      // элементы меняют старые элементы
+
+      // remove - удаление эелементов
+      // remove(parametr) - parametr: html markup, selector, element, jQuery
+
+      // detach = remove
+      // возвращает удаленные элементы
+
+      // empty - очищает содержимое элементов
+
+      let btn = $("button").first();
+      btn.click(() => {
+        //replaceWith
+        /*
+        $("div").not(".div1").replaceWith(function() {
+          return "<li>" + $(this).text() + "</li>";
+        });
+        $(".div1").replaceWith(function() {
+          return "<ul class='div1'>" + $(this).html() + "</ul>";
+        });
+        //$("p").first().replaceWith("<div>");
+        */
+
+        // remove
+        //$("ul").first().children().remove(":even");
+
+        // detach
+        let delElems = $("ul").first().children(":even").detach();
+        $(".yellowBg").append(delElems);
+      });
+    </script>
+  </body>
+</html>
